@@ -3,13 +3,13 @@ import asyncio
 from handlers import client
 from create_bot import bot, dp
 from aiogram.filters import Command
-
+from aiogram import F
 
 
 
 
 async def start_bot():
-    dp.message.register(client.cmd_start,Command(commands=['start']))
+    client.register_handlers_client(dp)
     try:
         await dp.start_polling(bot)
     finally:
